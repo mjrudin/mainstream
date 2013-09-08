@@ -1,0 +1,96 @@
+
+<!-- <br><br>
+**************************************************** -->
+
+<%# @articles.each do |u| %>
+  <!-- <div> -->
+    <%# u.title %>
+    <%# u.article.html_safe %>
+    <%# u.article['title'].html_safe %>
+    <%# u.article['content'].html_safe %>
+  <!-- </div>
+  <br>
+<br><br> -->
+<!-- **************************************************** -->
+
+
+<%# end %>
+
+
+<div class = "container">
+	
+	<div class = "nav nav_container">
+		
+		<div class = "nav nav_stream">
+			<span class="typcn typcn-refresh"></span>
+			<h1>News</h1>
+
+		</div>
+		
+		<div class = "nav nav_article">
+			<h1>Mainstream</h1>
+		</div>
+		
+	</div>
+	
+	<div class = "nav_shadow"></div>
+	
+	<div class = "stream_container">
+		<ul class = "stream">
+      <% @articles.each_with_index do |article, index| %>
+      
+      
+			  <li class = "stream_item" id = "<%= article.id %>"> 
+				    <div class="rank"><%= index + 1 %>
+				    </div>
+				  <div class = "stream_item_info">
+					  <h3><%= article.title %></h3>
+					<div class = "metadata author"><%= article.author %></div>
+          <div class = "metadata"> | <%= article.topic %></div>
+					<div class = "metadata url"><%= article.link %></div>
+				</div>
+			</li>
+      <% end %>
+				
+		</ul>
+	</div>
+  
+  
+		<div class = "article_container">
+
+			<div class = "article article_home">
+				<h2 class = "article home_title">Welcome to mainstream!</h2>
+				<h5 class = "article home_subtitle"><em>Mainstream lets you to find and read the best articles on the web.</em></h5>
+				
+				<p class = "article descriptor">Using articles shared on twitter, we find the single best piece of content per topic. </p>
+				
+				<p class = "article descriptor">The top articles are updated in near real-time, and help show you what you should be reading now.</p>
+				
+				<p class = "article descriptor" id = "final">What are you waiting for? Click a link on the left and enjoy!</p>
+			</div>
+			
+			
+		</div>
+	</div>
+  
+  
+<script>
+$(document).ready(function() {
+
+  $(".stream_item").click(function() {
+    var id = $(this).attr('id');
+    $("#"+id).css("opacity", ".5");
+    getArticle(id)
+  });
+  
+  function getArticle(id) {
+    $.ajax({
+      type: "GET",
+      url: "/urls/" + id,
+      success: function(articleHTML) {
+        $(".article_container").html(articleHTML)
+      }
+    })
+  }
+})
+</script>

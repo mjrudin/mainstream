@@ -1,0 +1,22 @@
+<div class = "article article_header">
+	<h4 class = "article"><%= @selected_article.title %></h4>
+	<span class = "article article_data author"><%= @selected_article.author %></span>
+	<span>|</span>
+	<span class = "article article_data topic"><%= @selected_article.topic %></span>
+	<span>|</span>
+	<span class = "article article_data read_length"><%= @selected_article.word_count/200 %> 
+    <% if @selected_article.word_count/200 == 1 %>
+      minute
+    <% else %>
+      minutes
+    <% end %>
+  </span>
+
+	<a href="<%= @selected_article.link %>" class = "article article_data article_url" target="_blank"><%= @selected_article.link %></a>
+</div>
+
+<div class = "article article_content">
+
+<%= @selected_article.article.html_safe %>
+
+</div>
