@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,300italic&subset=latin,latin-ext);
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,300italic,400italic&subset=latin,latin-ext);
 
 @font-face {
   font-family: 'typicons';
@@ -269,4 +269,63 @@ p{
 
 #final{
 	padding-top: 40px;
+}
+
+/* CONTENT STYLING */
+
+.article_container ul{
+	list-style-type: none;
+}
+
+.article_content a{
+	text-decoration: none;
+	font-weight: 600;
+	color: rgba(0,0,0, 1);
+
+}
+
+.article_content a:hover{
+	color: rgba(5, 142, 227, .8);
+}
+
+.article_content a:visited{
+	color: rgba(0,0,0, .5);
+	font-weight: 400;
+}
+
+.article_content img{
+	padding: 8px 0;
+	position: relative;
+	margin: 0px auto;
+}
+
+.article_content figcaption{
+	text-align: left;
+	font-weight: 300;
+}
+
+.article_content iframe{
+	margin: 0 auto;
+}
+
+.article_content p{
+	padding-bottom: 10px;
+	font-weight: 400;
+}
+
+.article_content{
+	font-size: 14px;
+}
+
+.article_content em{
+	font-weight: 400;
+}
+
+.article_content{
+	padding-bottom: 20px;
+}
+
+.article_content span{
+	padding-bottom: 10px;
+	font-weight: 400;
 }
