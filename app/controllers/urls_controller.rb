@@ -2,6 +2,7 @@ class UrlsController < ApplicationController
   
   def index
     @articles = Url.all
+    tweetfetch
   end
   
   def show
